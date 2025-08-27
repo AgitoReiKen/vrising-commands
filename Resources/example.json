@@ -1,0 +1,41 @@
+{
+  "ExampleCommand": {
+    "Environment": [
+      "Chat",
+      "Console",
+      "Rcon"
+    ],
+    "Aliases": [
+      "permissions",
+      "privileges",
+      "roles"
+    ],
+    "Middleware": [
+      {
+        "Id": "Permissions",
+        "Type": "RequireAll/RequireAny/DenyAny/AllowAll/DenyAll",
+        "Values": []
+      },
+      {
+        "Template": "AdminOnly"
+      },
+      {
+        "Id": "Cooldown",
+        "UniqueId": "ShowPermisisons.Cooldown",
+        "DatabaseId": "com.agitoreiken.commands:Cooldown:Persistent",
+        "UsageInterval": "1d 10h 12m 30s",
+        "MaxUsage": -1,
+        "UsageResetInterval": "10s",
+        "Permissions":
+        {
+          "premium": {
+            "UsageInterval": "5s"
+          },
+          "admin": {
+            "UsageInterval": "0s"
+          }
+        }
+      }
+    ]
+  }
+}

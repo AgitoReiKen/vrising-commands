@@ -1,0 +1,21 @@
+{
+  "Type_Numeric": "$[Green] Number",
+  "Type_Char": "$[Blue] Symbol",
+  "Type_Bool": "$[Red] Boolean",
+  "Type_String": "$[Pink] Text",
+  "Type_TimeSpan": "$[Violet] Time",
+  "Type_Custom": "$[White] {type}",
+  "HelpPluginFormat": "$[Bold] {plugin}: ",
+  "OptionalParameterFormat": "[{name}: $[Bold,Small]{type}?$[]]",
+  "ParameterFormat": "[{name}: $[Bold,Small]{type}$[]]",
+  "NotEnoughArguments": "Not enough arguments were provided for command.",
+  "InternalError": "Command failed to execute due to internal error.",
+  "ParsingError": "Couldn't parse value \"{input}\" to type $[Italic]{type}.",
+  "ParsingRules_Bool": "Acceptable values: yes/no, true/false, 1/0, on/off, enable/disable",
+  "ParsingRules_TimeSpan": "Acceptable values: 30d 24h 60m 60s (days, hours, minutes, seconds)",
+  "ServerInfo": "Server Information:\nUse .help command to get acknowledged of server commands",
+  "ShowSimilarCandidates": "Did you mean:\n{candidates}",
+  "ShowExactCandidates": "There are multiple plugins that support this command. Please specify exactly which one:\n{candidates}",
+  "CommandNotFound": "Command \"{command}\" not found.",
+  "CommandParsingFailed": "Couldn't read command from your input {input}"
+}

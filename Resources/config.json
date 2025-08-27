@@ -1,0 +1,127 @@
+{
+    "Prefixes": [
+        ".",
+        "!",
+        ":"
+    ],
+    "PluginDelimiters": [
+        ".",
+        "!",
+        ":"
+    ],
+    "PluginAliases": {
+        "com.agitoreiken.commands": [
+            "commands"
+        ],
+        "com.agitoreiken.localization": [
+            "localization"
+        ]
+    },
+    "Commands": {
+        "Help": {
+            "Aliases": [
+                "help"
+            ]
+        },
+        "Test1": {
+            "Aliases": [
+                "test1"
+            ]
+        },
+        "Test2": {
+            "Aliases": [
+                "test2",
+                "reload"
+            ],
+            "Middleware": [
+                {
+                    "Id": "Permissions",
+                    "Type": "RequireAll",
+                    "HideFromSuggestion": true,
+                    "Permissions": [
+                        "Reload"
+                    ]
+                }
+            ]
+        }
+    },
+    "InfoCommands": {
+        "ServerInfo": {
+            "Aliases": [
+                "server",
+                "info"
+            ],
+            "Middleware": "SharedCooldown"
+        }, 
+        "Test2": {
+            "Aliases": [
+                "test2"
+            ],
+            "Middleware": [
+                {
+                    "Id": "Cooldown",
+                    "UniqueId": "Test3",
+                    "DatabaseId": "Local",
+                    "MaxUsages": 3,
+                    "UsageInterval": "5s",
+                    "UsageResetInterval": "30s"
+                }
+            ]
+        }
+    },
+    "MiddlewareTemplates": {
+        "Configuration": {
+            "Id": "Permissions",
+            "Type": "RequireAny",
+            "Permissions": "Configuration",
+            "HideFromSuggestion": true
+        },
+        "Creation": {
+            "Id": "Permissions",
+            "Type": "RequireAny",
+            "Permissions": "Creation",
+            "HideFromSuggestion": true
+        },
+        "Moderation": {
+            "Id": "Permissions",
+            "Type": "RequireAny",
+            "Permissions": "Moderation",
+            "HideFromSuggestion": true
+        },
+        "Feature1": {
+            "Id": "Permissions",
+            "Type": "RequireAny",
+            "Permissions": "Feature1"
+        },
+        "Feature2": {
+            "Id": "Permissions",
+            "Type": "RequireAny",
+            "Permissions": "Feature2"
+        },
+        "SharedCooldown": {
+            "Id": "Cooldown",
+            "UniqueId": "SharedCoooldown",
+            "DatabaseId": "Local",
+            "UsageInterval": "1s",
+            "MaxUsages": -1
+        },
+        "MultiForPremium-OneForAllCommand": {
+            "Id": "Cooldown",
+            "UniqueId": "ModifiableCooldown",
+            "DatabaseId": "Local",
+            "UsageInterval": "1s",
+            "MaxUsages": 1,
+            "UsageResetInterval": "-1s",
+            "Modifications": [
+                {
+                    "Permissions": "Feature1",
+                    "MaxUsages": 10
+                },
+                {
+                    "Permissions": "Configuration",
+                    "MaxUsages": -1
+                }
+            ]
+        }
+    }
+}
